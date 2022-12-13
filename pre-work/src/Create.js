@@ -7,7 +7,7 @@ const Create = ({ posts, setPosts }) => {
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         // console.log('title, body', title, body)
-        const response = await fetch('https://jsonplace-univclone.herokuapp.com/posts', {
+        const response = await fetch(URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'Application/json',

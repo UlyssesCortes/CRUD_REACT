@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import Create from './Create';
 import Update from './Update';
 
+const URL = "https://jsonplace-univclone.herokuapp.com/posts";
+
 const App = () => {
   const [posts, setPosts] = useState([])
   const [postId, setPostId] = useState(null)
   console.log('posts', posts)
 
   const handleDelete = async (postIdToDelete) => {
-    const response = await fetch(`https://jsonplace-univclone.herokuapp.com/posts/${postIdToDelete}`, {
+    const response = await fetch(`${URL}/${postIdToDelete}`, {
       method: 'DELETE',
     })
 
@@ -24,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const resp = await fetch('https://jsonplace-univclone.herokuapp.com/posts')
+      const resp = await fetch(URL)
       const data = await resp.json();
       setPosts(data);
     }
